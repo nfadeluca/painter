@@ -3,6 +3,16 @@ import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 import java.awt.event.*;
 import java.awt.Color;
+import java.awt.AWTException;
+import java.awt.Rectangle;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.awt.Graphics2D;
+ 
+import javax.imageio.ImageIO;
 
 public class ColorCanvas {
 
@@ -47,6 +57,7 @@ public class ColorCanvas {
         JButton option_colorRed;
         JButton option_colorPurple;
         JButton option_colorGreen;
+        JButton save_image;
 
         ImageIcon option_draw_image = new ImageIcon
                 ("C:/Users/nfade/OneDrive/Desktop/Painter/assets/option_draw.png");
@@ -62,6 +73,9 @@ public class ColorCanvas {
 
         ImageIcon option_colorGreen_image = new ImageIcon
                 ("C:/Users/nfade/OneDrive/Desktop/Painter/assets/option_colorGreen.png");
+
+        ImageIcon saveIcon = new ImageIcon
+            ("C:/Users/nfade/OneDrive/Desktop/Painter/assets/save_button.png");
 
         void optionDraw() {
 
@@ -123,6 +137,34 @@ public class ColorCanvas {
 
         }
 
+        void saveImage() {
+
+            save_image = new JButton();
+            save_image.setIcon(saveIcon);
+            save_image.setBounds(700,20,82,40);
+            save_image.setFocusPainted(false);
+            save_image.setBorderPainted(true);
+            cnv_panel.add(save_image);
+
+        }
+
+        public void save()
+        {
+            BufferedImage bImg = new BufferedImage
+             (cnv_panel.getWidth(),cnv_panel.getHeight(), BufferedImage.TYPE_INT_RGB);
+            Graphics2D cg = bImg.createGraphics();
+            cnv_panel.paintAll(cg);
+            try {
+                if (ImageIO.write(bImg, "png", new File
+                ("C:/Users/nfade/OneDrive/Desktop/Painter/saves/image.png")))
+                {
+                    System.out.println("-- saved");
+                }       
+            } catch (IOException e) {
+                    e.printStackTrace();
+            }
+        }
+
         OptionsTabs(JPanel cnv_panel) {
 
             optionDraw();
@@ -130,6 +172,7 @@ public class ColorCanvas {
             colorRed();
             colorPurple();
             colorGreen();
+            saveImage();
 
             ColorTool coloring = new ColorTool(cnv_panel);
 
@@ -166,7 +209,13 @@ public class ColorCanvas {
                     if(e.getSource() == option_colorGreen) {
                         coloring.setImageIcon(4);
                         cnv_panel.repaint();
-                    }}});  
+                    }}}); 
+                    
+            save_image.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    if(e.getSource() == save_image) {
+                        save();
+                    }}});
 
         }
 
