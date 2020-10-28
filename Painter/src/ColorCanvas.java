@@ -3,14 +3,12 @@ import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 import java.awt.event.*;
 import java.awt.Color;
-import java.awt.AWTException;
-import java.awt.Rectangle;
-import java.awt.Robot;
-import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.Scanner;
 import java.awt.Graphics2D;
+import static javax.swing.JOptionPane.showMessageDialog;
  
 import javax.imageio.ImageIO;
 
@@ -154,10 +152,13 @@ public class ColorCanvas {
              (cnv_panel.getWidth(),cnv_panel.getHeight(), BufferedImage.TYPE_INT_RGB);
             Graphics2D cg = bImg.createGraphics();
             cnv_panel.paintAll(cg);
+            String name = JOptionPane.showInputDialog(cnv_frame,
+                        "What would you like to name the file?\nWarning, do not name it the same as another file.", null);
             try {
                 if (ImageIO.write(bImg, "png", new File
-                ("C:/Users/nfade/OneDrive/Desktop/Painter/saves/image.png")))
+                ("C:/Users/nfade/OneDrive/Desktop/Painter/saves/" + name + ".png")))
                 {
+                    
                     System.out.println("-- saved");
                 }       
             } catch (IOException e) {
