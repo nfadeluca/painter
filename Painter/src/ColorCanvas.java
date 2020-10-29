@@ -56,24 +56,28 @@ public class ColorCanvas {
         JButton option_colorPurple;
         JButton option_colorGreen;
         JButton save_image;
+        JButton size_large;
 
         ImageIcon option_draw_image = new ImageIcon
-                ("C:/Users/nfade/OneDrive/Desktop/Painter/assets/option_draw.png");
+            ("C:/Users/nfade/OneDrive/Desktop/Painter/assets/option_draw.png");
 
         ImageIcon option_erase_image = new ImageIcon
-                ("C:/Users/nfade/OneDrive/Desktop/Painter/assets/option_erase.png");
+            ("C:/Users/nfade/OneDrive/Desktop/Painter/assets/option_erase.png");
 
         ImageIcon option_colorRed_image = new ImageIcon
-                ("C:/Users/nfade/OneDrive/Desktop/Painter/assets/option_colorRed.png");
+            ("C:/Users/nfade/OneDrive/Desktop/Painter/assets/option_colorRed.png");
 
         ImageIcon option_colorPurple_image = new ImageIcon
-                ("C:/Users/nfade/OneDrive/Desktop/Painter/assets/option_colorPurple.png");
+            ("C:/Users/nfade/OneDrive/Desktop/Painter/assets/option_colorPurple.png");
 
         ImageIcon option_colorGreen_image = new ImageIcon
-                ("C:/Users/nfade/OneDrive/Desktop/Painter/assets/option_colorGreen.png");
+            ("C:/Users/nfade/OneDrive/Desktop/Painter/assets/option_colorGreen.png");
 
         ImageIcon saveIcon = new ImageIcon
             ("C:/Users/nfade/OneDrive/Desktop/Painter/assets/save_button.png");
+
+        ImageIcon sizeLargeIcon = new ImageIcon
+            ("C:/Users/nfade/OneDrive/Desktop/Painter/assets/size_large.png");
 
         void optionDraw() {
 
@@ -141,8 +145,19 @@ public class ColorCanvas {
             save_image.setIcon(saveIcon);
             save_image.setBounds(700,20,82,40);
             save_image.setFocusPainted(false);
-            save_image.setBorderPainted(true);
+            save_image.setBorderPainted(false);
             cnv_panel.add(save_image);
+
+        }
+
+        void sizeLarge() {
+
+            size_large = new JButton();
+            size_large.setBounds(130,32,30,30);
+            size_large.setFocusPainted(false);
+            size_large.setBorderPainted(false);
+            size_large.setIcon(sizeLargeIcon);
+            cnv_panel.add(size_large);
 
         }
 
@@ -153,17 +168,12 @@ public class ColorCanvas {
             Graphics2D cg = bImg.createGraphics();
             cnv_panel.paintAll(cg);
             String name = JOptionPane.showInputDialog(cnv_frame,
-                        "What would you like to name the file?\nWarning, do not name it the same as another file.", null);
+                        "What would you like to name the file?"+
+                        "\nWarning, do not name it the same as another file.", null);
             try {
-                if (ImageIO.write(bImg, "png", new File
-                ("C:/Users/nfade/OneDrive/Desktop/Painter/saves/" + name + ".png")))
-                {
-                    
-                    System.out.println("-- saved");
-                }       
-            } catch (IOException e) {
-                    e.printStackTrace();
-            }
+                ImageIO.write(bImg, "png", new File
+                ("C:/Users/nfade/OneDrive/Desktop/Painter/saves/" + name + ".png"));
+            } catch (IOException e) {e.printStackTrace();}
         }
 
         OptionsTabs(JPanel cnv_panel) {
@@ -174,6 +184,7 @@ public class ColorCanvas {
             colorPurple();
             colorGreen();
             saveImage();
+            sizeLarge();
 
             ColorTool coloring = new ColorTool(cnv_panel);
 
@@ -241,22 +252,14 @@ public class ColorCanvas {
 
         ImageIcon baseIcon = new ImageIcon();
 
+        ImageIcon sizeIcon = new ImageIcon();
+
         void setImageIcon(int x) {
-            if (x==0) {
-                baseIcon = drawed_image;
-            }
-            else if (x==1) {
-                baseIcon = erased_image;
-            }
-            else if (x==2) {
-                baseIcon = drawed_image_red;
-            }
-            else if (x==3) {
-                baseIcon = drawed_image_purple;
-            }
-            else if (x==4) {
-                baseIcon = drawed_image_green;
-            }
+            if (x==0) {baseIcon = drawed_image;}
+            else if (x==1) {baseIcon = erased_image;}
+            else if (x==2) {baseIcon = drawed_image_red;}
+            else if (x==3) {baseIcon = drawed_image_purple;}
+            else if (x==4) {baseIcon = drawed_image_green;}
         }
 
         ColorTool(JPanel cnv_panel) {
