@@ -6,6 +6,7 @@ import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.awt.Graphics2D;
 import static javax.swing.JOptionPane.showMessageDialog;
@@ -30,7 +31,7 @@ public class ColorCanvas {
         cnv_frame.setResizable(true);
 
         // Icon for top-left corener of Frame
-        ImageIcon img = new ImageIcon("C:/Users/nfade/OneDrive/Desktop/Painter/assets/image_icon.png");
+        ImageIcon img = new ImageIcon("C:\\Users\\nfade\\OneDrive\\Documents\\GitHub\\painter\\assets\\image_icon.png");
         cnv_frame.setIconImage(img.getImage());
 
         // Setting up Panel
@@ -58,26 +59,28 @@ public class ColorCanvas {
         JButton save_image;
         JButton size_large;
 
+        ArrayList<JButton> buttons = new ArrayList();
+
         ImageIcon option_draw_image = new ImageIcon
-            ("C:/Users/nfade/OneDrive/Desktop/Painter/assets/option_draw.png");
+            ("C:\\Users\\nfade\\OneDrive\\Documents\\GitHub\\painter\\assets\\option_draw.png");
 
         ImageIcon option_erase_image = new ImageIcon
-            ("C:/Users/nfade/OneDrive/Desktop/Painter/assets/option_erase.png");
+            ("C:\\Users\\nfade\\OneDrive\\Documents\\GitHub\\painter\\assets\\option_erase.png");
 
         ImageIcon option_colorRed_image = new ImageIcon
-            ("C:/Users/nfade/OneDrive/Desktop/Painter/assets/option_colorRed.png");
+            ("C:\\Users\\nfade\\OneDrive\\Documents\\GitHub\\painter\\assets\\option_colorRed.png");
 
         ImageIcon option_colorPurple_image = new ImageIcon
-            ("C:/Users/nfade/OneDrive/Desktop/Painter/assets/option_colorPurple.png");
+            ("C:\\Users\\nfade\\OneDrive\\Documents\\GitHub\\painter\\assets\\option_colorPurple.png");
 
         ImageIcon option_colorGreen_image = new ImageIcon
-            ("C:/Users/nfade/OneDrive/Desktop/Painter/assets/option_colorGreen.png");
+            ("C:\\Users\\nfade\\OneDrive\\Documents\\GitHub\\painter\\assets\\option_colorGreen.png");
 
         ImageIcon saveIcon = new ImageIcon
-            ("C:/Users/nfade/OneDrive/Desktop/Painter/assets/save_button.png");
+            ("C:\\Users\\nfade\\OneDrive\\Documents\\GitHub\\painter\\assets\\save_button.png");
 
         ImageIcon sizeLargeIcon = new ImageIcon
-            ("C:/Users/nfade/OneDrive/Desktop/Painter/assets/size_large.png");
+            ("C:\\Users\\nfade\\OneDrive\\Documents\\GitHub\\painter\\assets\\size_large.png");
 
         void optionDraw() {
 
@@ -88,6 +91,8 @@ public class ColorCanvas {
             option_draw.setBorderPainted(false);
             option_draw.setBackground(Color.white);
             cnv_panel.add(option_draw);
+
+            buttons.add(option_draw);
 
         }
 
@@ -101,6 +106,8 @@ public class ColorCanvas {
             option_erase.setBackground(Color.white);
             cnv_panel.add(option_erase);
 
+            buttons.add(option_erase);
+
         }
 
         void colorRed() {
@@ -112,6 +119,8 @@ public class ColorCanvas {
             option_colorRed.setBorderPainted(false);
             option_colorRed.setBackground(Color.white);
             cnv_panel.add(option_colorRed);
+
+            buttons.add(option_colorRed);
 
         }
 
@@ -125,6 +134,8 @@ public class ColorCanvas {
             option_colorPurple.setBackground(Color.white);
             cnv_panel.add(option_colorPurple);
 
+            buttons.add(option_colorPurple);
+
         }
 
         void colorGreen() {
@@ -137,6 +148,8 @@ public class ColorCanvas {
             option_colorGreen.setBackground(Color.white);
             cnv_panel.add(option_colorGreen);
 
+            buttons.add(option_colorGreen);
+
         }
 
         void saveImage() {
@@ -147,6 +160,8 @@ public class ColorCanvas {
             save_image.setFocusPainted(false);
             save_image.setBorderPainted(false);
             cnv_panel.add(save_image);
+
+            buttons.add(save_image);
 
         }
 
@@ -159,6 +174,17 @@ public class ColorCanvas {
             size_large.setIcon(sizeLargeIcon);
             cnv_panel.add(size_large);
 
+            buttons.add(size_large);
+
+        }
+
+        public void setAllButtonsInvisible(int x) {
+            if (x == 1) {
+                for (JButton button : buttons) { button.setVisible(false); }
+            } else {
+                for (JButton button : buttons) { button.setVisible(true); }
+            }
+            
         }
 
         public void save()
@@ -172,7 +198,7 @@ public class ColorCanvas {
                         "\nWarning, do not name it the same as another file.", null);
             try {
                 ImageIO.write(bImg, "png", new File
-                ("C:/Users/nfade/OneDrive/Desktop/Painter/saves/" + name + ".png"));
+                ("C:\\Users\\nfade\\OneDrive\\Documents\\GitHub\\painter\\saves\\" + name + ".png"));
             } catch (IOException e) {e.printStackTrace();}
         }
 
@@ -226,7 +252,9 @@ public class ColorCanvas {
             save_image.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     if(e.getSource() == save_image) {
+                        setAllButtonsInvisible(1);
                         save();
+                        setAllButtonsInvisible(0);
                     }}});
 
         }
@@ -236,19 +264,19 @@ public class ColorCanvas {
     class ColorTool {
 
         ImageIcon drawed_image = new ImageIcon
-                ("C:/Users/nfade/OneDrive/Desktop/Painter/assets/drawed_image_black.png");
+                ("C:\\Users\\nfade\\OneDrive\\Documents\\GitHub\\painter\\assets\\drawed_image_black.png");
 
         ImageIcon drawed_image_red = new ImageIcon
-                ("C:/Users/nfade/OneDrive/Desktop/Painter/assets/drawed_image_red.png");
+                ("C:\\Users\\nfade\\OneDrive\\Documents\\GitHub\\painter\\assets\\drawed_image_red.png");
 
         ImageIcon drawed_image_purple = new ImageIcon
-                ("C:/Users/nfade/OneDrive/Desktop/Painter/assets/drawed_image_purple.png");
+                ("C:\\Users\\nfade\\OneDrive\\Documents\\GitHub\\painter\\assets\\drawed_image_purple.png");
 
         ImageIcon drawed_image_green = new ImageIcon
-                ("C:/Users/nfade/OneDrive/Desktop/Painter/assets/drawed_image_green.png");
+                ("C:\\Users\\nfade\\OneDrive\\Documents\\GitHub\\painter\\assets\\drawed_image_green.png");
 
         ImageIcon erased_image = new ImageIcon
-                ("C:/Users/nfade/OneDrive/Desktop/Painter/assets/erased_image.png");
+                ("C:\\Users\\nfade\\OneDrive\\Documents\\GitHub\\painter\\assets\\erased_image.png");
 
         ImageIcon baseIcon = new ImageIcon();
 
