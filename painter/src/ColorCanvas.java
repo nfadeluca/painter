@@ -31,7 +31,7 @@ public class ColorCanvas {
         cnv_frame.setResizable(true);
 
         // Icon for top-left corener of Frame
-        ImageIcon img = new ImageIcon("C:\\Users\\nfade\\OneDrive\\Documents\\GitHub\\painter\\assets\\image_icon.png");
+        ImageIcon img = new ImageIcon("C:\\Users\\nfade\\OneDrive\\Documents\\GitHub\\painter\\Painter\\assets\\image_icon.png");
         cnv_frame.setIconImage(img.getImage());
 
         // Setting up Panel
@@ -62,25 +62,25 @@ public class ColorCanvas {
         ArrayList<JButton> buttons = new ArrayList();
 
         ImageIcon option_draw_image = new ImageIcon
-            ("C:\\Users\\nfade\\OneDrive\\Documents\\GitHub\\painter\\assets\\option_draw.png");
+            ("C:\\Users\\nfade\\OneDrive\\Documents\\GitHub\\painter\\Painter\\assets\\option_draw.png");
 
         ImageIcon option_erase_image = new ImageIcon
-            ("C:\\Users\\nfade\\OneDrive\\Documents\\GitHub\\painter\\assets\\option_erase.png");
+            ("C:\\Users\\nfade\\OneDrive\\Documents\\GitHub\\painter\\Painter\\assets\\option_erase.png");
 
         ImageIcon option_colorRed_image = new ImageIcon
-            ("C:\\Users\\nfade\\OneDrive\\Documents\\GitHub\\painter\\assets\\option_colorRed.png");
+            ("C:\\Users\\nfade\\OneDrive\\Documents\\GitHub\\painter\\Painter\\assets\\option_colorRed.png");
 
         ImageIcon option_colorPurple_image = new ImageIcon
-            ("C:\\Users\\nfade\\OneDrive\\Documents\\GitHub\\painter\\assets\\option_colorPurple.png");
+            ("C:\\Users\\nfade\\OneDrive\\Documents\\GitHub\\painter\\Painter\\assets\\option_colorPurple.png");
 
         ImageIcon option_colorGreen_image = new ImageIcon
-            ("C:\\Users\\nfade\\OneDrive\\Documents\\GitHub\\painter\\assets\\option_colorGreen.png");
+            ("C:\\Users\\nfade\\OneDrive\\Documents\\GitHub\\painter\\Painter\\assets\\option_colorGreen.png");
 
         ImageIcon saveIcon = new ImageIcon
-            ("C:\\Users\\nfade\\OneDrive\\Documents\\GitHub\\painter\\assets\\save_button.png");
+            ("C:\\Users\\nfade\\OneDrive\\Documents\\GitHub\\painter\\Painter\\assets\\save_button.png");
 
         ImageIcon sizeLargeIcon = new ImageIcon
-            ("C:\\Users\\nfade\\OneDrive\\Documents\\GitHub\\painter\\assets\\size_large.png");
+            ("C:\\Users\\nfade\\OneDrive\\Documents\\GitHub\\painter\\Painter\\assets\\size_large.png");
 
         void optionDraw() {
 
@@ -198,7 +198,7 @@ public class ColorCanvas {
                         "\nWarning, do not name it the same as another file.", null);
             try {
                 ImageIO.write(bImg, "png", new File
-                ("C:\\Users\\nfade\\OneDrive\\Documents\\GitHub\\painter\\saves\\" + name + ".png"));
+                ("C:\\Users\\nfade\\OneDrive\\Documents\\GitHub\\painter\\Painter\\saves\\" + name + ".png"));
             } catch (IOException e) {e.printStackTrace();}
         }
 
@@ -264,19 +264,19 @@ public class ColorCanvas {
     class ColorTool {
 
         ImageIcon drawed_image = new ImageIcon
-                ("C:\\Users\\nfade\\OneDrive\\Documents\\GitHub\\painter\\assets\\drawed_image_black.png");
+                ("C:\\Users\\nfade\\OneDrive\\Documents\\GitHub\\painter\\Painter\\assets\\drawed_image_black.png");
 
         ImageIcon drawed_image_red = new ImageIcon
-                ("C:\\Users\\nfade\\OneDrive\\Documents\\GitHub\\painter\\assets\\drawed_image_red.png");
+                ("C:\\Users\\nfade\\OneDrive\\Documents\\GitHub\\painter\\Painterr\\assets\\drawed_image_red.png");
 
         ImageIcon drawed_image_purple = new ImageIcon
-                ("C:\\Users\\nfade\\OneDrive\\Documents\\GitHub\\painter\\assets\\drawed_image_purple.png");
+                ("C:\\Users\\nfade\\OneDrive\\Documents\\GitHub\\painter\\Painter\\assets\\drawed_image_purple.png");
 
         ImageIcon drawed_image_green = new ImageIcon
-                ("C:\\Users\\nfade\\OneDrive\\Documents\\GitHub\\painter\\assets\\drawed_image_green.png");
+                ("C:\\Users\\nfade\\OneDrive\\Documents\\GitHub\\painter\\Painter\\assets\\drawed_image_green.png");
 
         ImageIcon erased_image = new ImageIcon
-                ("C:\\Users\\nfade\\OneDrive\\Documents\\GitHub\\painter\\assets\\erased_image.png");
+                ("C:\\Users\\nfade\\OneDrive\\Documents\\GitHub\\painter\\Painter\\assets\\erased_image.png");
 
         ImageIcon baseIcon = new ImageIcon();
 
