@@ -7,9 +7,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Scanner;
 import java.awt.Graphics2D;
-import static javax.swing.JOptionPane.showMessageDialog;
  
 import javax.imageio.ImageIO;
 
@@ -100,7 +98,7 @@ public class ColorCanvas {
 
             option_erase = new JButton();
             option_erase.setIcon(option_erase_image);
-            option_erase.setBounds(65,27,26,43);
+            option_erase.setBounds(20,115,26,43);
             option_erase.setFocusPainted(false);
             option_erase.setBorderPainted(false);
             option_erase.setBackground(Color.white);
@@ -114,7 +112,7 @@ public class ColorCanvas {
 
             option_colorRed = new JButton();
             option_colorRed.setIcon(option_colorRed_image);
-            option_colorRed.setBounds(20, 90, 20, 53);
+            option_colorRed.setBounds(95, 20, 20, 53);
             option_colorRed.setFocusPainted(false);
             option_colorRed.setBorderPainted(false);
             option_colorRed.setBackground(Color.white);
@@ -128,7 +126,7 @@ public class ColorCanvas {
 
             option_colorPurple = new JButton();
             option_colorPurple.setIcon(option_colorPurple_image);
-            option_colorPurple.setBounds(20, 160, 20, 53);
+            option_colorPurple.setBounds(70, 20, 20, 53);
             option_colorPurple.setFocusPainted(false);
             option_colorPurple.setBorderPainted(false);
             option_colorPurple.setBackground(Color.white);
@@ -142,7 +140,7 @@ public class ColorCanvas {
 
             option_colorGreen = new JButton();
             option_colorGreen.setIcon(option_colorGreen_image);
-            option_colorGreen.setBounds(20, 230, 20, 53);
+            option_colorGreen.setBounds(45, 20, 20, 53);
             option_colorGreen.setFocusPainted(false);
             option_colorGreen.setBorderPainted(false);
             option_colorGreen.setBackground(Color.white);
@@ -156,7 +154,7 @@ public class ColorCanvas {
 
             save_image = new JButton();
             save_image.setIcon(saveIcon);
-            save_image.setBounds(700,20,82,40);
+            save_image.setBounds(700,25,82,40);
             save_image.setFocusPainted(false);
             save_image.setBorderPainted(false);
             cnv_panel.add(save_image);
@@ -168,11 +166,14 @@ public class ColorCanvas {
         void sizeLarge() {
 
             size_large = new JButton();
-            size_large.setBounds(130,32,30,30);
+            size_large.setBounds(20,80,30,30);
             size_large.setFocusPainted(false);
             size_large.setBorderPainted(false);
             size_large.setIcon(sizeLargeIcon);
             cnv_panel.add(size_large);
+
+            // Temporary
+            size_large.setVisible(false);
 
             buttons.add(size_large);
 
@@ -267,7 +268,7 @@ public class ColorCanvas {
                 ("C:\\Users\\nfade\\OneDrive\\Documents\\GitHub\\painter\\Painter\\assets\\drawed_image_black.png");
 
         ImageIcon drawed_image_red = new ImageIcon
-                ("C:\\Users\\nfade\\OneDrive\\Documents\\GitHub\\painter\\Painterr\\assets\\drawed_image_red.png");
+                ("C:\\Users\\nfade\\OneDrive\\Documents\\GitHub\\painter\\Painter\\assets\\drawed_image_red.png");
 
         ImageIcon drawed_image_purple = new ImageIcon
                 ("C:\\Users\\nfade\\OneDrive\\Documents\\GitHub\\painter\\Painter\\assets\\drawed_image_purple.png");
