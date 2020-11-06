@@ -54,6 +54,7 @@ public class ColorCanvas {
         JButton option_colorRed;
         JButton option_colorPurple;
         JButton option_colorGreen;
+        JButton option_colorYellow;
         JButton save_image;
         JButton size_large;
         JButton size_medium;
@@ -75,6 +76,9 @@ public class ColorCanvas {
 
         ImageIcon option_colorGreen_image = new ImageIcon
             ("C:\\Users\\nfade\\OneDrive\\Documents\\GitHub\\painter\\Painter\\assets\\option_colorGreen.png");
+
+        ImageIcon option_colorYellow_image = new ImageIcon
+            ("C:\\Users\\nfade\\OneDrive\\Documents\\GitHub\\painter\\Painter\\assets\\option_colorYellow.png");
 
         ImageIcon saveIcon = new ImageIcon
             ("C:\\Users\\nfade\\OneDrive\\Documents\\GitHub\\painter\\Painter\\assets\\save_button.png");
@@ -153,6 +157,20 @@ public class ColorCanvas {
             option_colorGreen.setBorderPainted(false);
             option_colorGreen.setBackground(Color.white);
             cnv_panel.add(option_colorGreen);
+
+            buttons.add(option_colorGreen);
+
+        }
+
+        void colorYellow() {
+
+            option_colorYellow = new JButton();
+            option_colorYellow.setIcon(option_colorYellow_image);
+            option_colorYellow.setBounds(120, 20, 20, 53);
+            option_colorYellow.setFocusPainted(false);
+            option_colorYellow.setBorderPainted(false);
+            option_colorYellow.setBackground(Color.white);
+            cnv_panel.add(option_colorYellow);
 
             buttons.add(option_colorGreen);
 
@@ -241,6 +259,7 @@ public class ColorCanvas {
             colorRed();
             colorPurple();
             colorGreen();
+            colorYellow();
             saveImage();
             sizeLarge();
             sizeMedium();
@@ -282,6 +301,13 @@ public class ColorCanvas {
                         coloring.setImageIcon(4);
                         cnv_panel.repaint();
                     }}}); 
+             
+                    option_colorYellow.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    if(e.getSource() == option_colorYellow) {
+                        coloring.setImageIcon(5);
+                        cnv_panel.repaint();
+                    }}});         
                     
             save_image.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
@@ -309,6 +335,9 @@ public class ColorCanvas {
         ImageIcon drawed_image_green = new ImageIcon
                 ("C:\\Users\\nfade\\OneDrive\\Documents\\GitHub\\painter\\Painter\\assets\\drawed_image_green.png");
 
+        ImageIcon drawed_image_yellow = new ImageIcon
+                ("C:\\Users\\nfade\\OneDrive\\Documents\\GitHub\\painter\\Painter\\assets\\drawed_image_yellow.png");
+
         ImageIcon erased_image = new ImageIcon
                 ("C:\\Users\\nfade\\OneDrive\\Documents\\GitHub\\painter\\Painter\\assets\\erased_image.png");
 
@@ -322,6 +351,7 @@ public class ColorCanvas {
             else if (x==2) {baseIcon = drawed_image_red;}
             else if (x==3) {baseIcon = drawed_image_purple;}
             else if (x==4) {baseIcon = drawed_image_green;}
+            else if (x==5) {baseIcon = drawed_image_yellow;}
         }
 
         ColorTool(JPanel cnv_panel) {
