@@ -56,6 +56,8 @@ public class ColorCanvas {
         JButton option_colorGreen;
         JButton save_image;
         JButton size_large;
+        JButton size_medium;
+        JButton size_small;
 
         ArrayList<JButton> buttons = new ArrayList();
 
@@ -79,6 +81,12 @@ public class ColorCanvas {
 
         ImageIcon sizeLargeIcon = new ImageIcon
             ("C:\\Users\\nfade\\OneDrive\\Documents\\GitHub\\painter\\Painter\\assets\\size_large.png");
+
+        ImageIcon sizeMediumIcon = new ImageIcon
+            ("C:\\Users\\nfade\\OneDrive\\Documents\\GitHub\\painter\\Painter\\assets\\size_medium.png");
+
+        ImageIcon sizeSmallIcon = new ImageIcon
+            ("C:\\Users\\nfade\\OneDrive\\Documents\\GitHub\\painter\\Painter\\assets\\size_small.png");    
 
         void optionDraw() {
 
@@ -166,16 +174,39 @@ public class ColorCanvas {
         void sizeLarge() {
 
             size_large = new JButton();
-            size_large.setBounds(20,80,30,30);
+            size_large.setBounds(22,83,20,20);
             size_large.setFocusPainted(false);
             size_large.setBorderPainted(false);
             size_large.setIcon(sizeLargeIcon);
             cnv_panel.add(size_large);
 
-            // Temporary
-            size_large.setVisible(false);
-
             buttons.add(size_large);
+
+        }
+
+        void sizeMedium() {
+
+            size_medium = new JButton();
+            size_medium.setBounds(48,83,16,15);
+            size_medium.setFocusPainted(false);
+            size_medium.setBorderPainted(false);
+            size_medium.setIcon(sizeMediumIcon);
+            cnv_panel.add(size_medium);
+
+            buttons.add(size_medium);
+
+        }
+
+        void sizeSmall() {
+
+            size_small = new JButton();
+            size_small.setBounds(72,83,11,10);
+            size_small.setFocusPainted(false);
+            size_small.setBorderPainted(false);
+            size_small.setIcon(sizeSmallIcon);
+            cnv_panel.add(size_small);
+
+            buttons.add(size_small);
 
         }
 
@@ -212,6 +243,8 @@ public class ColorCanvas {
             colorGreen();
             saveImage();
             sizeLarge();
+            sizeMedium();
+            sizeSmall();
 
             ColorTool coloring = new ColorTool(cnv_panel);
 
